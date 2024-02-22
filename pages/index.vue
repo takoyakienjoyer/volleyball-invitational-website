@@ -28,7 +28,7 @@
     <ClientOnly>
       <HomeLinks />
 
-      <HomeTeams/>
+      <HomeTeams />
     </ClientOnly>
 
     <div class="h-[100rem]"></div>
