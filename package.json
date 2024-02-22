@@ -1,0 +1,23 @@
+{
+  "name": "volleyball-invitational-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@iconify-json/simple-icons": "^1.1.91",
+    "@nuxt/ui-pro": "npm:@nuxt/ui-pro-edge@latest",
+    "nuxt": "^3.10.2",
+    "prettier-plugin-organize-attributes": "^1.0.0",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "sass": "^1.71.0",
+    "vue": "^3.4.19",
+    "vue-router": "^4.2.5"
+  }
+}
