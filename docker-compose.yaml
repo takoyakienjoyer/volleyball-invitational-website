@@ -1,16 +1,39 @@
 version: "3.8"
 services:
-  app:
+  web-app:
     build: .
-    ports:
-      - "3000:3000"
     depends_on:
-      - db
-  db:
-    image: mongo:latest
-    volumes:
-      - mongodb_data:/data/db
+      - mongo-db
     ports:
-      - "27017:27017"
+      - "3000:3000/tcp"
+
+  mongo-db:
+    image: mongo:latest
+    ports:
+      - "27017:27017/tcp"
+    volumes:
+      - mongo-data:/data/db
+      - mongo-config:/data/configdb
+
+  minio-storage:
+    image: minio/minio:latest
+    command: minio server /data --address :9000 --console-address :9001
+    ports:
+      - "9000:9000/tcp"
+      - "9001:9001/tcp"
+    volumes:
+      - minio-data:/data
+
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared:latest
+    command: tunnel run --token ${TUNNEL_TOKEN}
+    depends_on:
+      - web-app
+
 volumes:
-  mongodb_data:
+  mongo-config:
+    driver: local
+  mongo-data:
+    driver: local
+  minio-data:
+    driver: local

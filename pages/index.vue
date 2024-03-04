@@ -4,34 +4,36 @@
       <section id="landing">
         <img class="animate-fade absolute h-[44.5rem] w-full overflow-hidden object-cover opacity-0 brightness-[0.5]" src="~/assets/LWEInvitational_edited.jpg" />
 
-        <div class="absolute right-[3.8rem] mt-[2.5rem] flex w-full items-center justify-center">
-          <img class="animate-top h-[548px] w-[441px] object-cover opacity-0" src="~/assets/LWEInvitational_logo.png" />
-          <div class="ml-8 mt-16">
+        <div class="absolute w-full items-center justify-center lg:mt-[2.5rem] lg:flex">
+          <img class="animate-top mx-auto w-[294px] object-contain opacity-0 md:w-[255px] lg:mx-0 lg:w-[441px]" src="~/assets/LWEInvitational_logo.png" />
+          <div class="lg:ml-8 lg:mt-24">
             <div class="animate-right opacity-0 delay-500">
-              <h1 class="mb-4 w-[28rem] text-[2.75rem]/[3.25rem] font-bold text-white">Welcome to the 2024 LWE Boys' Volleyball Invitational</h1>
+              <h1 class="mx-10 mb-4 text-center text-3xl font-bold text-white lg:mx-0 lg:w-[28rem] lg:text-start lg:text-[2.75rem]/[3.25rem]">
+                Welcome to the {{ new Date().getFullYear() }} LWE Boys' Volleyball Invitational
+              </h1>
             </div>
             <div class="animate-right opacity-0 delay-1000">
-              <p class="mb-4 w-[26rem] text-lg font-light text-white">
-                Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet. Lorem Ipsum dolor sit amet.
+              <p class="mx-8 mb-4 text-center text-xl font-light text-white lg:mx-0 lg:w-[26rem] lg:text-start">
+                Join the {{ new Date().getFullYear() }} LWE Boys' Volleyball Invitational for excellent competition and excitement. Watch your favorite teams compete.
               </p>
             </div>
-            <div class="animate-right delay-1500 opacity-0">
-              <UButton :ui="{ rounded: 'rounded-full' }" icon="i-heroicons-chevron-down" variant="solid" size="xl" to="/#info" />
+            <div class="animate-right delay-1500 text-center opacity-0 lg:text-start">
+              <UButton class="h-10 w-32 lg:w-10" :ui="{ rounded: 'rounded-full' }" variant="solid" to="/#info">
+                <UIcon class="h-full w-full flex-shrink-0" name="i-heroicons-chevron-down" aria-hidden="true" />
+              </UButton>
             </div>
           </div>
         </div>
       </section>
-    </ClientOnly>
 
-    <div class="h-[44.5rem]"></div>
+      <div class="h-[44.5rem]"></div>
 
-    <ClientOnly>
       <HomeLinks />
 
       <HomeTeams />
-    </ClientOnly>
 
-    <div class="h-[100rem]"></div>
+      <SocialFeed />
+    </ClientOnly>
   </div>
 </template>
 

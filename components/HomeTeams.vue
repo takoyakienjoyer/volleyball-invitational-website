@@ -18,7 +18,7 @@ const { stop } = useIntersectionObserver(
 
     stop();
   },
-  { threshold: 0.8 },
+  { threshold: 0.1 },
 );
 
 onMounted(() => {
@@ -35,9 +35,44 @@ onMounted(() => {
 
 <template>
   <UContainer class="-mt-16">
-    <section class="-scroll-m-[2px]" id="teams" ref="teamsSection">
+    <section class="-scroll-m-[0.5rem] lg:-scroll-m-[2rem]" id="teams" ref="teamsSection">
       <div class="animate-bottom" :ref="(element) => (refs[0] = element)">
-        <ULandingSection icon="i-heroicons-user-group" :title="sectionTitle"> </ULandingSection>
+        <ULandingSection icon="i-heroicons-user-group" :title="sectionTitle">
+          <div class="-mt-8 lg:-mt-16 lg:grid lg:grid-cols-5 lg:gap-4">
+            <div class="flex flex-col items-center">
+              <img class="h-[250px] object-contain lg:h-[180px]" src="~/assets/knight_clean__1_.png" />
+              <span class="w-full text-center text-xl font-bold lg:text-base">Lincoln-Way Central</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img class="h-[250px] object-contain lg:h-[180px]" src="~/assets/knight_clean__1_.png" />
+              <span class="w-full text-center text-xl font-bold lg:text-base">Lincoln-Way Central</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img class="h-[250px] object-contain lg:h-[180px]" src="~/assets/knight_clean__1_.png" />
+              <span class="w-full text-center text-xl font-bold lg:text-base">Lincoln-Way Central</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img class="h-[250px] object-contain lg:h-[180px]" src="~/assets/knight_clean__1_.png" />
+              <span class="w-full text-center text-xl font-bold lg:text-base">Lincoln-Way Central</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img class="h-[250px] object-contain lg:h-[180px]" src="~/assets/knight_clean__1_.png" />
+              <span class="w-full text-center text-xl font-bold lg:text-base">Lincoln-Way Central</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img class="h-[250px] object-contain lg:h-[180px]" src="~/assets/knight_clean__1_.png" />
+              <span class="w-full text-center text-xl font-bold lg:text-base">Lincoln-Way Central</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img class="h-[250px] object-contain lg:h-[180px]" src="~/assets/knight_clean__1_.png" />
+              <span class="w-full text-center text-xl font-bold lg:text-base">Lincoln-Way Central</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img class="h-[250px] object-contain lg:h-[180px]" src="~/assets/knight_clean__1_.png" />
+              <span class="w-full text-center text-xl font-bold lg:text-base">Lincoln-Way Central</span>
+            </div>
+          </div>
+        </ULandingSection>
       </div>
     </section>
   </UContainer>

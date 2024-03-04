@@ -17,7 +17,7 @@ const { stop } = useIntersectionObserver(
 
     stop();
   },
-  { threshold: 1.0 },
+  { threshold: 0.3 },
 );
 
 onMounted(() => {
@@ -33,19 +33,20 @@ onMounted(() => {
 <template>
   <UContainer class="mt-16">
     <section id="info" ref="linksSection">
-      <div class="animate-bottom flex" :ref="(element) => (refs[0] = element)">
+      <div class="animate-bottom lg:flex" :ref="(element) => (refs[0] = element)">
         <ULandingCard
           class="h-[18rem]"
-          to="/#landing"
+          to="/"
+          target="_blank"
           title="Schedule and Results"
-          description="View the tournament schedule, live scores, and match results. All the key details for following the tournament are here."
+          description="View the tournament schedule, live scores, and match results. All the key details for following the tournament are here. Don't miss a beat. Stay up to date with the latest scores and results."
           icon="i-heroicons-document-chart-bar"
         />
         <ULandingCard
-          class="mx-8 h-[18rem]"
+          class="my-8 h-[18rem] lg:mx-8 lg:my-0"
           to="/all-tournament"
           title="All Tournament"
-          description="Get details on every match and team in the tournament. Find standings and team information in one place."
+          description="Experience the pinnacle of competition where elite players from each position team up for exclusive scrimmages. Discover the best of the best as they showcase their skills in a series of high-stakes matches."
           icon="i-heroicons-trophy"
         />
         <ULandingCard
@@ -53,7 +54,7 @@ onMounted(() => {
           to=""
           target="_blank"
           title="Spectator Tickets"
-          description="Buy tickets to watch the tournament live. Join us for exciting matches and support your favorite teams."
+          description="Buy tickets to watch the tournament live. Join us for exciting matches and support your favorite teams. Get your tickets now and be part of the action. Don't miss out on the excitement."
           icon="i-heroicons-ticket"
         />
       </div>

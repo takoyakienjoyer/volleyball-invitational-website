@@ -4,26 +4,27 @@ const mounted = ref(false);
 const headerLinks = [
   {
     label: "Schedule and Results",
-    icon: "i-heroicons-book-open",
+    icon: "i-heroicons-clipboard-document-list",
     to: "/#info",
     active: false,
   },
   {
     label: "Meet the Teams",
-    icon: "i-heroicons-square-3-stack-3d",
-    to: "/#teams",
+    icon: "i-heroicons-user-group",
+    to: "/team-profiles",
     active: false,
   },
   {
     label: "Past Tournaments",
-    icon: "i-heroicons-chat-bubble-bottom-center-text",
-    to: "/#tournaments",
+    icon: "i-ph-trophy",
+    to: "/past-tournaments",
     active: false,
   },
   {
     label: "Dashboard",
     icon: "i-heroicons-user",
     to: "/dashboard",
+    active: false,
   },
 ];
 
@@ -46,10 +47,6 @@ onMounted(() => {
       <UTooltip text="Follow us on X">
         <UButton to="https://twitter.com" icon="i-simple-icons-x" color="gray" variant="ghost" />
       </UTooltip>
-
-      <UTooltip text="Follow us on Instagram">
-        <UButton to="https://instagram.com" icon="i-simple-icons-instagram" color="gray" variant="ghost" />
-      </UTooltip>
     </template>
   </UHeader>
   <UHeader v-else>
@@ -62,7 +59,6 @@ onMounted(() => {
     </template>
 
     <template #right>
-      <USkeleton class="h-8 w-8" />
       <USkeleton class="h-8 w-8" />
       <USkeleton class="h-8 w-8" />
     </template>
