@@ -10,10 +10,8 @@ defineProps<{
   <AppHeader />
 
   <UContainer>
-    <UMain>
-      <UPage>
-        <UPageError :error="error" />
-      </UPage>
-    </UMain>
+    <UPage>
+      <UPageError :error="error" />
+    </UPage>
   </UContainer>
 </template>

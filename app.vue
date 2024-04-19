@@ -12,14 +12,8 @@ useHead({
 
 <template>
   <div>
-    <AppHeader />
-
     <NuxtLayout>
       <NuxtPage />
-
-      <UDivider icon="i-simple-icons-nuxtdotjs" />
-
-      <AppFooter />
     </NuxtLayout>
   </div>
 </template>
@@ -33,7 +27,6 @@ section {
 .layout-leave-active {
   transition: all 0.25s;
 }
-
 .layout-enter-from,
 .layout-leave-to {
   opacity: 0;

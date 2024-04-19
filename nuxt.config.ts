@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   extends: ["@nuxt/ui-pro"],
-  modules: ["@nuxt/ui", "@nuxtjs/fontaine", "@nuxtjs/google-fonts", "@nuxtjs/turnstile"],
+  modules: ["@nuxt/ui", "@nuxtjs/fontaine", "@nuxtjs/google-fonts"],
   app: {
     layoutTransition: { name: "layout", mode: "out-in" },
     pageTransition: { name: "page", mode: "out-in" },

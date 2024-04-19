@@ -32,7 +32,11 @@
 
       <HomeTeams />
 
+      <ULandingSection title="Sponsors" icon="i-heroicons-cube-transparent"></ULandingSection>
+
+      <!--
       <SocialFeed />
+      -->
     </ClientOnly>
   </div>
 </template>

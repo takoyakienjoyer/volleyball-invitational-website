@@ -5,5 +5,9 @@ definePageMeta({
 </script>
 
 <template>
-  <div></div>
+  <UDashboardPage>
+    <UDashboardPanel grow>
+      <UDashboardNavbar title="Home" />
+    </UDashboardPanel>
+  </UDashboardPage>
 </template>
