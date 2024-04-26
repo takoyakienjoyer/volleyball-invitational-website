@@ -14,7 +14,7 @@ const { stop } = useIntersectionObserver(
     showCards.value = true;
     stop();
   },
-  { threshold: 0.3 },
+  { threshold: 0.0005 },
 );
 </script>
 
@@ -22,7 +22,7 @@ const { stop } = useIntersectionObserver(
   <UContainer class="-mb-16 -mt-32 lg:-mt-16 lg:-mt-48">
     <div ref="socialsSection">
       <ULandingSection icon="i-simple-icons-x" title="Social Feed">
-        <div class="-mt-8 lg:-mt-16 lg:flex lg:justify-center" :ref="(element) => (refs[0] = element)">
+        <div class="-mt-8 lg:-mt-16 lg:flex lg:justify-center" :ref="(element: any) => (refs[0] = element)">
           <ULandingCard class="mx-auto block text-center lg:mx-3" v-if="showCards" title="Lincoln-Way East Boys Volleyball Timeline" icon="i-ph-volleyball">
             <TwitterFeed handle="LWEBVBALL" />
           </ULandingCard>

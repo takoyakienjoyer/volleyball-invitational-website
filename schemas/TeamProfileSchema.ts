@@ -16,10 +16,7 @@ export default Yup.object({
   bestFinish: Yup.string().required("Please enter the school's best finish"),
   pastAllTournament: Yup.string().required("Please enter the school's past All-Tournament players"),
   pastMVP: Yup.string().required("Please enter the school's past MVPs"),
-  logo: Yup.mixed()
+  schoolLogo: Yup.mixed()
     .required("Please upload the school's logo")
-    .test("fileType", "Unsupported file type", (value: any) => value && value.type.startsWith("image/")),
-  coachHeadshot: Yup.mixed()
-    .required("Please upload the head coach's headshot")
     .test("fileType", "Unsupported file type", (value: any) => value && value.type.startsWith("image/")),
 });

@@ -17,7 +17,7 @@ const { stop } = useIntersectionObserver(
 
     stop();
   },
-  { threshold: 0.3 },
+  { threshold: 0.0005 },
 );
 
 onMounted(() => {
@@ -33,30 +33,42 @@ onMounted(() => {
 <template>
   <UContainer class="mt-16">
     <section id="info" ref="linksSection">
-      <div class="animate-bottom lg:flex" :ref="(element) => (refs[0] = element)">
+      <div class="animate-bottom lg:flex" :ref="(element: any) => (refs[0] = element)">
         <ULandingCard
-          class="h-[18rem]"
-          to="/"
+          class="h-[18rem] text-center"
+          :ui="{ title: 'text-gray-900 dark:text-white text-base font-bold truncate text-2xl' }"
+          to="https://www.gobound.com/host/lwevb/tournaments/R600?b=t"
           target="_blank"
-          title="Schedule and Results"
-          description="View the tournament schedule, live scores, and match results. All the key details for following the tournament are here. Don't miss a beat. Stay up to date with the latest scores and results."
-          icon="i-heroicons-document-chart-bar"
-        />
+          title="SCHEDULE AND RESULTS"
+          description="View tournament schedules and match results"
+        >
+          <template #icon>
+            <UIcon class="mt-10 h-14 w-14" name="i-heroicons-document-chart-bar" />
+          </template>
+        </ULandingCard>
         <ULandingCard
-          class="my-8 h-[18rem] lg:mx-8 lg:my-0"
+          class="my-8 h-[18rem] text-center lg:mx-8 lg:my-0"
+          :ui="{ title: 'text-gray-900 dark:text-white text-base font-bold truncate text-2xl' }"
           to="/all-tournament"
-          title="All Tournament"
-          description="Experience the pinnacle of competition where elite players from each position team up for exclusive scrimmages. Discover the best of the best as they showcase their skills in a series of high-stakes matches."
-          icon="i-heroicons-trophy"
-        />
+          title="ALL-TOURNAMENT"
+          description="Check here following the tournament for a listing of players selected for the All-Tournament Team."
+        >
+          <template #icon>
+            <UIcon class="mt-10 h-14 w-14" name="i-heroicons-trophy" />
+          </template>
+        </ULandingCard>
         <ULandingCard
-          class="h-[18rem]"
-          to=""
+          class="h-[18rem] text-center"
+          :ui="{ title: 'text-gray-900 dark:text-white text-base font-bold truncate text-2xl' }"
+          to="https://gofan.co/app/school/IL15560"
           target="_blank"
-          title="Spectator Tickets"
-          description="Buy tickets to watch the tournament live. Join us for exciting matches and support your favorite teams. Get your tickets now and be part of the action. Don't miss out on the excitement."
-          icon="i-heroicons-ticket"
-        />
+          title="SPECTATOR TICKETS"
+          description="Click here to purchase tickets through our online partner, GoFan. Cash will not be accepted at the door."
+        >
+          <template #icon>
+            <UIcon class="mt-10 h-14 w-14" name="i-heroicons-ticket" />
+          </template>
+        </ULandingCard>
       </div>
     </section>
   </UContainer>

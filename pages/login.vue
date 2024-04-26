@@ -1,45 +1,78 @@
 <script setup lang="ts">
-import type { FormError } from "#ui/types";
+import type { FormSubmitEvent } from "#ui/types";
+import type { InferType } from "yup";
+import LoginSchema from "~/schemas/LoginSchema";
 
-const fields = [
-  {
-    name: "email",
-    type: "text",
-    label: "Email",
-    placeholder: "Enter your email",
-  },
-  {
-    name: "password",
-    label: "Password",
-    type: "password",
-    placeholder: "Enter your password",
-  },
-];
-
-const validate = (state: any) => {
-  const errors: FormError[] = [];
-  if (!state.email) errors.push({ path: "email", message: "Email is required" });
-  if (!state.password) errors.push({ path: "password", message: "Password is required" });
-  return errors;
+type Schema = InferType<typeof LoginSchema>;
+type LoginState = {
+  email: string | undefined;
+  password: string | undefined;
 };
 
-function onSubmit(data: any) {
-  console.log("Submitted", data);
+const state = reactive<LoginState>({
+  email: undefined,
+  password: undefined,
+});
+
+const mounted = ref<boolean>(false);
+
+onMounted(() => {
+  mounted.value = true;
+});
+
+const toast = useToast();
+
+async function onSubmit(event: FormSubmitEvent<Schema>): Promise<void> {
+  try {
+    await $fetch("/api/auth/login", {
+      method: "POST",
+      body: {
+        email: state.email,
+        password: state.password,
+      },
+    });
+
+    toast.add({ title: "Success", description: "Login successful. Redirecting...", icon: "i-heroicons-check-circle", color: "green" });
+
+    navigateTo("/dashboard");
+  } catch (error: any) {
+    switch (error.status) {
+      case 422:
+        toast.add({ title: "Error", description: "Incorrect email or password.", icon: "i-heroicons-x-circle", color: "red" });
+        break;
+
+      default:
+        toast.add({ title: "Error", description: "Something went wrong. Please try again later.", icon: "i-heroicons-x-circle", color: "red" });
+        break;
+    }
+  }
 }
 </script>
 
 <template>
-  <div class="flex items-center justify-center">
+  <UMain class="flex items-center justify-center">
     <ULandingCard class="mx-auto -mt-10 w-full max-w-sm">
-      <UAuthForm
-        :fields="fields"
-        :validate="validate"
-        title="Sign in to your account"
-        icon="i-heroicons-lock-closed"
-        :ui="{ base: 'text-center', footer: 'text-center', default: { submitButton: { label: 'Sign in' } } }"
-        @submit="onSubmit"
-      >
-      </UAuthForm>
+      <template #title>
+        <ClientOnly>
+          <div class="text-center text-lg font-normal">Login</div>
+        </ClientOnly>
+      </template>
+      <div class="h-3" v-if="!mounted" />
+
+      <UDivider icon="i-heroicons-user" />
+      <UForm class="space-y-4" :schema="LoginSchema" :state="state" @submit="onSubmit">
+        <UFormGroup label="Email" required name="email" size="lg">
+          <UInput v-model="state.email" size="lg" type="email" placeholder="Email" icon="i-heroicons-envelope" />
+        </UFormGroup>
+
+        <UFormGroup label="Password" required name="password" size="lg">
+          <UInput v-model="state.password" size="lg" type="password" placeholder="Password" icon="i-heroicons-lock-closed" />
+        </UFormGroup>
+
+        <div class="w-full text-center">
+          <UButton type="submit" size="lg">Sign In</UButton>
+        </div>
+      </UForm>
     </ULandingCard>
-  </div>
+  </UMain>
 </template>

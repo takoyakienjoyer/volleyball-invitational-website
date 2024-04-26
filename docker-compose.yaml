@@ -4,6 +4,7 @@ services:
     build: .
     depends_on:
       - mongo-db
+      - minio-storage
     ports:
       - "3000:3000/tcp"
 
@@ -23,6 +24,9 @@ services:
       - "9001:9001/tcp"
     volumes:
       - minio-data:/data
+    environment:
+      - MINIO_ROOT_USER=${MINIO_ACCESS_KEY}
+      - MINIO_ROOT_PASSWORD=${MINIO_SECRET_KEY}
 
   cloudflare-tunnel:
     image: cloudflare/cloudflared:latest

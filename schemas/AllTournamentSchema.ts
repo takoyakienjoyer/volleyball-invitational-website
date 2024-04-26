@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 export default Yup.object({
-  placement: Yup.string().required("Please enter the participant's placement"),
+  mvp: Yup.boolean().required("Please enter the MVP"),
   number: Yup.string().required("Please enter the participant's number"),
   name: Yup.string().required("Please enter the participant's name"),
   school: Yup.string().required("Please enter the participant's school"),

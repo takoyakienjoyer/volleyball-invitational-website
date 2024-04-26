@@ -20,8 +20,7 @@ type TeamProfileState = {
   bestFinish: string | undefined;
   pastAllTournament: string | undefined;
   pastMVP: string | undefined;
-  logo: File | undefined;
-  coachHeadshot: File | undefined;
+  schoolLogo: any | undefined;
 };
 
 const state = reactive<TeamProfileState>({
@@ -40,8 +39,7 @@ const state = reactive<TeamProfileState>({
   bestFinish: undefined,
   pastAllTournament: undefined,
   pastMVP: undefined,
-  logo: undefined,
-  coachHeadshot: undefined,
+  schoolLogo: undefined,
 });
 
 async function onSubmit(event: FormSubmitEvent<Schema>): Promise<void> {
@@ -52,6 +50,7 @@ const existingTeams = [[{ label: "Lincoln-Way East" }]];
 
 definePageMeta({
   layout: "dashboard",
+  middleware: "auth",
 });
 </script>
 
@@ -101,37 +100,29 @@ definePageMeta({
             <UFormGroup class="mt-4" label="Best Finish" name="bestFinish" required>
               <UInput v-model="state.bestFinish" color="white" variant="outline" placeholder="Best Finish" />
             </UFormGroup>
-            <UFormGroup class="mt-4" label="Past All Tournament" name="pastAllTournament" required>
-              <UInput v-model="state.pastAllTournament" color="white" variant="outline" placeholder="Past All Tournament" />
+            <UFormGroup class="mt-4" label="Past All-Tournament" name="pastAllTournament" required>
+              <UInput v-model="state.pastAllTournament" color="white" variant="outline" placeholder="Past All-Tournament" />
             </UFormGroup>
             <UFormGroup class="mt-4" label="Past MVPs" name="pastMVP" required>
               <UInput v-model="state.pastMVP" color="white" variant="outline" placeholder="Past MVPs" />
             </UFormGroup>
-            <UFormGroup class="mt-4" label="School Logo" name="logo" required>
-              <UInput v-model="state.logo" type="file" color="white" variant="outline" />
-            </UFormGroup>
-            <UFormGroup class="mt-4" label="Coach Headshot" name="coachHeadshot" required>
-              <UInput v-model="state.coachHeadshot" type="file" color="white" variant="outline" />
+            <UFormGroup class="mt-4" label="School Logo" name="schoolLogo" required>
+              <UInput v-model="state.schoolLogo" type="file" color="white" variant="outline" />
             </UFormGroup>
             <UButton class="mt-4" type="submit" color="white" label="Save Profile" />
           </UForm>
         </UCard>
 
         <UCard class="mt-4">
-          <UForm>
+          <div>
             <UFormGroup label="Team">
               <UDropdown :items="existingTeams" :popper="{ placement: 'bottom-start' }">
                 <UButton color="white" trailing-icon="i-heroicons-chevron-down-20-solid" />
               </UDropdown>
             </UFormGroup>
-
-            <div>
-              <UButton class="mt-4" color="white" label="Edit Profile" />
-            </div>
-            <div>
-              <UButton class="mt-4" color="red" label="Delete Profile" />
-            </div>
-          </UForm>
+            <UButton class="mt-4" color="white" label="Edit Profile" />
+            <UButton class="ml-4" color="red" label="Delete Profile" />
+          </div>
         </UCard>
       </UDashboardPanelContent>
     </UDashboardPanel>

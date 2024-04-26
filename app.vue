@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: "East Volleyball Invitational",
+  title: "Lincoln-Way East Volleyball Invitational",
   meta: [
     {
       name: "Lincoln-Way East Volleyball Invitational",

@@ -16,7 +16,7 @@ const sidebarLinks = [
     to: "/dashboard/past-tournaments",
   },
   {
-    label: "All Tournament",
+    label: "All-Tournament",
     icon: "i-heroicons-star",
     to: "/dashboard/all-tournament",
   },
@@ -24,11 +24,6 @@ const sidebarLinks = [
     label: "Home Links",
     icon: "i-heroicons-globe-alt",
     to: "/dashboard/home-links",
-  },
-  {
-    label: "User Accounts",
-    icon: "i-heroicons-user",
-    to: "/dashboard/user-accounts",
   },
   {
     label: "Sponsors",
@@ -39,6 +34,18 @@ const sidebarLinks = [
     label: "Settings",
     icon: "i-heroicons-cog-6-tooth",
     to: "/dashboard/settings",
+    children: [
+      {
+        label: "General",
+        icon: "i-heroicons-lock-closed",
+        to: "/dashboard/settings",
+      },
+      {
+        label: "Logout",
+        icon: "i-heroicons-arrow-left-start-on-rectangle",
+        to: "/logout",
+      },
+    ],
   },
 ];
 </script>
@@ -46,7 +53,11 @@ const sidebarLinks = [
 <template>
   <UDashboardLayout>
     <UDashboardPanel :width="300" collapsible>
-      <UDashboardNavbar />
+      <UDashboardNavbar>
+        <template #left>
+          <ULink class="text-base font-bold" to="/#landing">LWE Volleyball Invitational</ULink>
+        </template>
+      </UDashboardNavbar>
 
       <UDashboardSidebar>
         <UDashboardSidebarLinks :links="sidebarLinks" />
@@ -54,5 +65,7 @@ const sidebarLinks = [
     </UDashboardPanel>
 
     <slot></slot>
+
+    <UNotifications />
   </UDashboardLayout>
 </template>

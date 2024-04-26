@@ -3,11 +3,12 @@
     <ULandingSection
       class="-my-20"
       title="History of the Lincoln-Way East Invitational"
-      description="The Lincoln-Way Invitational began in 1992 during the inaugural IHSA season for boys volleyball in Illinois. The invite was created by Maggie Jager, the first boys volleyball coach at Lincoln-Way. Over 30 years later it remains a prestigious event, regularly hosting the best boys volleyball programs from the Midwest. As the oldest boys volleyball tournament in Illinois, it began with a 16-team field and expanded to 24 in 2012. In 2002 Lincoln-Way split into two separate high schools, East and Central. At that point the tournament was renamed the Lincoln-Way East Invitational. Annually the invite is held at the East and Central/West campuses. Since it’s expansion to 24 teams Lincoln-Way East has won the most titles with 4, followed by Glenbard West with 2."
+      icon="i-heroicons-book-open"
+      description="The Lincoln-Way Invitational began in 1992 during the inaugural IHSA season for boys volleyball in Illinois. The invite was created by Maggie Jager, the first boys volleyball coach at Lincoln-Way. Over 30 years later it remains a prestigious event, regularly hosting the best boys volleyball programs from the Midwest. As the oldest boys volleybAll-Tournament in Illinois, it began with a 16-team field and expanded to 24 in 2012. In 2002 Lincoln-Way split into two separate high schools, East and Central. At that point the tournament was renamed the Lincoln-Way East Invitational. Annually the invite is held at the East and Central/West campuses. Since it’s expansion to 24 teams Lincoln-Way East has won the most titles with 4, followed by Glenbard West with 2."
     />
 
-    <div class="flex space-x-8">
-      <ULandingCard class="mb-16 text-center" title="Tournament Champions">
+    <div class="lg:flex lg:space-x-8">
+      <ULandingCard class="text-center lg:mb-16" title="Tournament Champions">
         <div>
           <ul>
             2012 - Lincoln-Way East
@@ -48,7 +49,7 @@
         </div>
       </ULandingCard>
 
-      <ULandingCard class="mb-16 text-center" title="Tournament MVPs">
+      <ULandingCard class="mb-16 mt-8 text-center lg:mt-0" title="Tournament MVPs">
         <div>
           <ul>
             2012 - Nathan Royer, Lincoln-Way East (St. Ambrose)
@@ -89,5 +90,6 @@
         </div>
       </ULandingCard>
     </div>
+    <img class="mx-auto mb-8 w-[350px]" src="~/assets/LWEVBinvite_logo.svg" />
   </UContainer>
 </template>
