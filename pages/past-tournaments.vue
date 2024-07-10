@@ -49,7 +49,7 @@
         </div>
       </ULandingCard>
 
-      <ULandingCard class="mb-16 mt-8 text-center lg:mt-0" title="Tournament MVPs">
+      <ULandingCard class="mb-16 mt-6 text-center lg:mt-0" title="Tournament MVPs">
         <div>
           <ul>
             2012 - Nathan Royer, Lincoln-Way East (St. Ambrose)

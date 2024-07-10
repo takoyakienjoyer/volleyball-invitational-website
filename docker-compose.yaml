@@ -5,13 +5,9 @@ services:
     depends_on:
       - mongo-db
       - minio-storage
-    ports:
-      - "3000:3000/tcp"
 
   mongo-db:
     image: mongo:latest
-    ports:
-      - "27017:27017/tcp"
     volumes:
       - mongo-data:/data/db
       - mongo-config:/data/configdb
@@ -19,9 +15,6 @@ services:
   minio-storage:
     image: minio/minio:latest
     command: minio server /data --address :9000 --console-address :9001
-    ports:
-      - "9000:9000/tcp"
-      - "9001:9001/tcp"
     volumes:
       - minio-data:/data
     environment:
